@@ -15,3 +15,12 @@ go get github.com/joho/godotenv
 ```
 go get -u gorm.io/gorm
 ```
+- postgresql driver
+```
+go get -u gorm.io/driver/postgres
+```
+
+### migration
+```
+go run main.go migrate
+```
