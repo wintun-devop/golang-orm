@@ -7,8 +7,8 @@ import (
 
 type UserRepo struct{}
 
-func (UserRepo) Create(user *models.User) error {
-	return config.DB.Create(user).Error
+func (UserRepo) Create(user *models.User) interface{} {
+	return config.DB.Create(user)
 }
 
 func (UserRepo) Update(id string, updates map[string]interface{}) error {

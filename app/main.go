@@ -3,8 +3,8 @@ package main
 import (
 	"app/cmd"
 	"app/config"
+	"app/crud"
 	"app/models"
-	repository "app/repositories"
 	"app/utils"
 	"fmt"
 	"os"
@@ -16,21 +16,22 @@ func main() {
 		return
 	}
 	fmt.Println("welcome my app")
-	// Step 2: Create an instance of the repository
 	config.InitDB()
-	userRepo := repository.UserRepo{}
 
 	// Step 3: Use CRUD methods
-
+	var user1 string = "wintun33"
+	var email1 string = "wintun33@gmail.com"
 	// ✅ Create
 	newUser := &models.User{
 		ID:       utils.GenerateULID(),
-		Username: "win14",
-		Email:    "win14@example.com",
+		Username: user1,
+		Email:    email1,
 		Password: "securepassword",
 	}
-	userRepo.Create(newUser)
-	// if err := userRepo.Create(newUser); err != nil {
-	// 	fmt.Println("Create error:", err)
-	// }
+	fmt.Println(newUser)
+	// crud.CreateUser(newUser)
+	results, _ := crud.GetUsers()
+	fmt.Println("r", results)
+	// fmt.Println("e", err)
+
 }
